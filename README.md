@@ -1,20 +1,26 @@
 # spring-authorization-server-pr-1056
 
 ## scenario
-1. Issue a token with an already registered client
+1. boot Run
+
+```
+$ ./gradlew bootRun
+```
+
+3. Issue a token with an already registered client
 
 ```
 $ curl -X POST "http://localhost:8080/oauth2/token" -H 'Content-Type: application/x-www-form-urlencoded' -u messaging-client:secret -d "grant_type=client_credentials&scope=client.create"
 ```
 
-2. Execute the following command using the displayed access_token
+3. Execute the following command using the displayed access_token
 
 ```
 $ curl -X POST -v "http://localhost:8080/connect/register" -d '{ "client_id": "123", "redirect_uris": "http://127.0.0.1/callback", "grant_types": ["authorization_code", "client_credentials"] }' -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer (Set access_token here)'
 ```
 
-3. Issue a token using the displayed client_id and client_secret
+4. Issue a token using the displayed client_id and client_secret
 
 ```
 $ curl -X POST "http://localhost:8080/oauth2/token" -H 'Content-Type: application/x-www-form-urlencoded' -d "grant_type=client_credentials" \
