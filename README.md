@@ -16,7 +16,7 @@ $ curl -X POST "http://localhost:8080/oauth2/token" -H 'Content-Type: applicatio
 3. Execute the following command using the displayed access_token
 
 ```
-$ curl -X POST -v "http://localhost:8080/connect/register" -d '{ "client_id": "123", "redirect_uris": "http://127.0.0.1/callback", "grant_types": ["authorization_code", "client_credentials"] }' -H 'Content-Type: application/json' \
+$ curl -X POST -v "http://localhost:8080/connect/register" -d '{ "client_name": "123", "redirect_uris": "http://127.0.0.1/callback", "grant_types": ["authorization_code", "client_credentials"] }' -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer (Set access_token here)'
 ```
 
